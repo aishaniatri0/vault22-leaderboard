@@ -1378,11 +1378,13 @@ const Onboard={i:0,
       <p style="color:var(--ink-soft);font-size:15px;line-height:1.6;max-width:380px;margin:0 auto">${esc(s.d)}</p>
       <div class="coach-dots">${ONB.map((_,i)=>`<span class="${i===this.i?'on':''}"></span>`).join('')}</div>
       <div style="display:flex;gap:10px;justify-content:center">
+        ${this.i>0?`<button class="btn btn-ghost" onclick="Onboard.back()" aria-label="Back to previous step">Back</button>`:''}
         <button class="btn btn-ghost" onclick="Onboard.done()">Skip</button>
         <button class="btn btn-primary" onclick="Onboard.next()">${this.i<ONB.length-1?'Next':'Explore'}</button>
       </div></div>`);
   },
   next(){if(this.i<ONB.length-1){this.i++;this.render();}else this.done();},
+  back(){if(this.i>0){this.i--;this.render();}},
   done(){try{localStorage.setItem('v22onb','1');}catch(e){}closeAll();TFloat.show('<b>You are all set.</b> I will surface insights as you explore. Tap me anytime.','');}
 };
 
