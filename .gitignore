@@ -1,0 +1,6 @@
+# internal review artifacts (kept local, not published)
+QA-WALKTHROUGH.md
+qa/
+
+# OS cruft
+.DS_Store
