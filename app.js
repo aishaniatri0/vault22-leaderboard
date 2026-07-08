@@ -1437,4 +1437,8 @@ document.addEventListener('keydown',e=>{
 /* ============================================================
    boot
    ============================================================ */
-document.addEventListener('DOMContentLoaded',()=>{Personal.load();App.init();_routeReplace();setTimeout(()=>Onboard.start(),400);});
+document.addEventListener('DOMContentLoaded',()=>{Personal.load();App.init();_routeReplace();
+  /* onboarding shows once per browser; append ?tour (or ?tour=1) to the URL to replay it on demand */
+  const forceTour=/[?&]tour\b/i.test(location.search);
+  setTimeout(()=>Onboard.start(forceTour),400);
+});
